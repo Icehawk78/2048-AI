@@ -32,7 +32,7 @@ Grid.prototype.saveLocalStorage = function () {
 }
 
 // pre-allocate these objects (for speed)
-gameSize = gameSize || 8;
+gameSize = 8;
 Grid.prototype.indexes = [];
 for (var x=0; x<gameSize; x++) {
   Grid.prototype.indexes.push([]);
