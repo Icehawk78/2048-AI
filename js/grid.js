@@ -2,13 +2,6 @@ function Grid(size) {
   this.size = size;
   this.startTiles   = 2;
   this.onlyTwos = false;
-  
-  for (var x=0; x<this.size; x++) {
-    this.indexes.push([]);
-    for (var y=0; y<this.size; y++) {
-      this.indexes[x].push( {x:x, y:y} );
-    }
-  }
 
   this.cells = [];
 
@@ -39,7 +32,14 @@ Grid.prototype.saveLocalStorage = function () {
 }
 
 // pre-allocate these objects (for speed)
+gameSize = gameSize || 8;
 Grid.prototype.indexes = [];
+for (var x=0; x<gameSize; x++) {
+  Grid.prototype.indexes.push([]);
+  for (var y=0; y<gameSize; y++) {
+    Grid.prototype.indexes[x].push( {x:x, y:y} );
+  }
+}
 
 
 // Build a grid of the specified size
