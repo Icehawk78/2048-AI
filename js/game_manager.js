@@ -4,6 +4,15 @@ function GameManager(size, InputManager, Actuator) {
   this.actuator     = new Actuator;
 
   this.running      = false;
+  
+  var gridHtml = $('.grid-container').clear();
+  for (var x=0; x<this.size; x++) {
+    var rowHtml = $('<div>').addClass('grid-row');
+    for (var y=0; y<this.size; y++) {
+      rowHtml.append($('<div>').addClass('grid-cell'));
+    }
+    gridHtml.append(rowHtml);
+  }
 
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
