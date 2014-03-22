@@ -26,7 +26,9 @@ Grid.prototype.loadLocalStorage = function() {
   this.build();
   grid.forEach(function(row) {
     row.forEach(function(cell){
-      self.insertTile(new Tile({x: cell.x, y: cell.y}, cell.value));
+      if (cell) {
+        self.insertTile(new Tile({x: cell.x, y: cell.y}, cell.value));
+      }
     });
   });
 }
