@@ -207,9 +207,10 @@ Grid.prototype.move = function (direction) {
           score += merged.value;
 
           // The mighty 2048 tile
-          if (merged.value === 2048) {
-            won = true;
-          }
+          // Not really so special
+          //if (merged.value === 2048) {
+          //  won = true;
+          //}
         } else {
           //if (debug) {
             //console.log(cell);
