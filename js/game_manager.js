@@ -5,7 +5,7 @@ function GameManager(size, InputManager, Actuator) {
 
   this.running      = false;
   
-  var gridHtml = $('.grid-container').clear();
+  var gridHtml = $('.grid-container').empty();
   for (var x=0; x<this.size; x++) {
     var rowHtml = $('<div>').addClass('grid-row');
     for (var y=0; y<this.size; y++) {
