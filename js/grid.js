@@ -16,6 +16,26 @@ function Grid(size) {
   this.playerTurn = true;
 }
 
+Grid.prototype.loadLocalStorage = function() {
+  if (!localStorage['2048_grid']) {
+    return;
+  }
+  var self = this;
+  this.size = Number(localStorage['2048_size']);
+  var grid = JSON.parse(localStorage['2048_grid']);
+  this.build();
+  grid.forEach(function(row) {
+    row.forEach(function(cell){
+      self.insertTile(new Tile({x: cell.x, y: cell.y}, cell.value));
+    });
+  });
+}
+
+Grid.prototype.saveLocalStorage = function () {
+  localStorage['2048_size'] = this.size;
+  localStorage['2048_grid'] = JSON.stringify(this.cells);
+}
+
 // pre-allocate these objects (for speed)
 Grid.prototype.indexes = [];
 
